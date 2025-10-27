@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arjie & [Partner’s Name] – Wedding Invitation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Raleway:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========== GENERAL STYLING ========== */
+    :root {
+      --bg-main: #F7F4EF;
+      --accent: #A58B6F;
+      --accent-dark: #8C755E;
+      --text: #3E3E3E;
+      --heading: #2B2B2B;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Raleway', sans-serif;
+      color: var(--text);
+      background-color: var(--bg-main);
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      color: var(--heading);
+      margin-bottom: 10px;
+    }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 80px 20px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp 1s ease-out forwards;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Stagger fade delays per section */
+    section:nth-of-type(1) { animation-delay: 0.2s; }
+    section:nth-of-type(2) { animation-delay: 0.5s; }
+    section:nth-of-type(3) { animation-delay: 0.8s; }
+    section:nth-of-type(4) { animation-delay: 1.1s; }
+    section:nth-of-type(5) { animation-delay: 1.4s; }
+    section:nth-of-type(6) { animation-delay: 1.7s; }
+
+    .divider {
+      width: 60px;
+      height: 2px;
+      background-color: var(--accent);
+      margin: 25px auto;
+    }
+
+    /* ========== HERO SECTION ========== */
+    .hero {
+      background: linear-gradient(rgba(247,244,239,0.8), rgba(247,244,239,0.8)),
+                  url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1400&q=80')
+                  center/cover fixed;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      letter-spacing: 2px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      font-style: italic;
+      margin-top: 10px;
+    }
+
+    .scroll-down {
+      position: absolute;
+      bottom: 30px;
+      font-size: 1rem;
+      color: var(--accent-dark);
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* ========== STORY SECTION ========== */
+    .story {
+      background-color: var(--bg-main);
+      background-image: linear-gradient(rgba(247,244,239,0.95), rgba(247,244,239,0.95)),
+                        url('https://images.unsplash.com/photo-1498575207490-3e1ff30ecb9f?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+    .story p {
+      max-width: 650px;
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+
+    /* ========== DETAILS SECTION ========== */
+    .details {
+      background-color: #EDE8E1;
+    }
+
+    .details-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: stretch;
+      gap: 25px;
+    }
+
+    .card {
+      background-color: #fff;
+      border: 1px solid #D9D1C7;
+      border-radius: 12px;
+      padding: 25px;
+      width: 280px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+
+    /* ========== RSVP SECTION ========== */
+    .rsvp {
+      background: linear-gradient(rgba(165,139,111,0.2), rgba(165,139,111,0.2)),
+                  url('https://images.unsplash.com/photo-1537636572351-6a2bca26f66e?auto=format&fit=crop&w=1400&q=80') center/cover fixed;
+    }
+
+    .rsvp button {
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      padding: 14px 36px;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 15px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .rsvp button:hover {
+      background-color: var(--accent-dark);
+      transform: scale(1.05);
+    }
+
+    /* ========== GALLERY SECTION ========== */
+    .gallery {
+      background-color: #FAF8F5;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 80px 20px;
+    }
+
+    .gallery img {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+
+    /* ========== CLOSING SECTION ========== */
+    .closing {
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+                  url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=1600&q=80') center/cover fixed;
+      color: white;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+
+    footer {
+      background-color: #C1B7A3;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9rem;
+      color: #3E3E3E;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.3rem; }
+      .details-container { flex-direction: column; align-items: center; }
+      .card { width: 90%; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <h1>Arjie & [Partner’s Name]</h1>
+    <div class="divider"></div>
+    <p>Invite you to celebrate their wedding</p>
+    <p><strong>October 12, 2026 · Calgary, Alberta</strong></p>
+    <div class="scroll-down">↓ Scroll down</div>
+  </section>
+
+  <!-- OUR STORY -->
+  <section class="story" id="story">
+    <h2>Our Story</h2>
+    <div class="divider"></div>
+    <p>
+      From quiet walks along the river to countless shared coffees, our story has been one of laughter,
+      patience, and love. We can’t wait to begin the next chapter surrounded by the people who mean the most to us.
+    </p>
+  </section>
+
+  <!-- DETAILS -->
+  <section class="details" id="details">
+    <h2>The Celebration</h2>
+    <div class="divider"></div>
+    <div class="details-container">
+      <div class="card">
+        <h3>Ceremony</h3>
+        <p>2:00 PM<br>St. Mary’s Church<br>Calgary, AB</p>
+      </div>
+      <div class="card">
+        <h3>Reception</h3>
+        <p>5:30 PM<br>Ridge View Barn<br>Calgary, AB</p>
+      </div>
+      <div class="card">
+        <h3>Dress Code</h3>
+        <p>Elegant Semi-Formal<br>(Earth tones preferred)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section class="rsvp" id="rsvp">
+    <h2>Kindly Reply</h2>
+    <div class="divider"></div>
+    <p>Please let us know if you’ll be joining us in person or virtually.</p>
+    <a href="https://forms.gle/your-rsvp-link" target="_blank">
+      <button>Send Our Love</button>
+    </a>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery" id="gallery">
+    <img src="https://images.unsplash.com/photo-1529634892519-72c9c05e2831?auto=format&fit=crop&w=800&q=80" alt="engagement 1">
+    <img src="https://images.unsplash.com/photo-1521334884684-d80222895322?auto=format&fit=crop&w=800&q=80" alt="engagement 2">
+    <img src="https://images.unsplash.com/photo-1537636572351-6a2bca26f66e?auto=format&fit=crop&w=800&q=80" alt="engagement 3">
+  </section>
+
+  <!-- CLOSING -->
+  <section class="closing" id="closing">
+    <h2>With Love and Gratitude</h2>
+    <p>Arjie & [Partner’s Name]</p>
+  </section>
+
+  <footer>
+    Designed with love · © 2026 Arjie & [Partner’s Name]
+  </footer>
+</body>
+</html>
